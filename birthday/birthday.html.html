@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday! 💗</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffd6e7, #ffb6d5, #ffcce3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #8b2455;
+    }
+
+    /* FLOATING HEARTS */
+
+    .heart {
+      position: absolute;
+      color: rgba(255,255,255,0.7);
+      font-size: 25px;
+      animation: float 7s linear infinite;
+      bottom: -50px;
+      pointer-events: none;
+    }
+
+    .heart:nth-child(1) {
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .heart:nth-child(2) {
+      left: 25%;
+      animation-delay: 2s;
+    }
+
+    .heart:nth-child(3) {
+      left: 45%;
+      animation-delay: 4s;
+    }
+
+    .heart:nth-child(4) {
+      left: 65%;
+      animation-delay: 1s;
+    }
+
+    .heart:nth-child(5) {
+      left: 85%;
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* BALLOONS */
+
+    .balloon {
+      position: absolute;
+      width: 55px;
+      height: 70px;
+      border-radius: 50%;
+      background: #f47eb5;
+      bottom: -100px;
+      animation: balloon 8s linear infinite;
+      pointer-events: none;
+    }
+
+    .balloon::after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 100px;
+      background: #b85c86;
+      left: 50%;
+      top: 68px;
+    }
+
+    .balloon:nth-of-type(1) {
+      left: 8%;
+      animation-delay: 1s;
+    }
+
+    .balloon:nth-of-type(2) {
+      right: 8%;
+      background: #ff9ac6;
+      animation-delay: 3s;
+    }
+
+    @keyframes balloon {
+      from {
+        transform: translateY(0) rotate(-5deg);
+      }
+
+      to {
+        transform: translateY(-120vh) rotate(8deg);
+      }
+    }
+
+    /* CARD */
+
+    .card {
+      position: relative;
+      z-index: 5;
+      width: 92%;
+      max-width: 720px;
+      padding: 55px 35px;
+      text-align: center;
+      background: rgba(255,255,255,0.85);
+      border-radius: 35px;
+      box-shadow: 0 20px 50px rgba(180,50,110,0.25);
+      border: 3px solid white;
+      animation: appear 1.2s ease;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    @keyframes appear {
+      from {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* CAKE */
+
+    .emoji {
+      font-size: 65px;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%,100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    /* HEADINGS */
+
+    h1 {
+      margin-top: 15px;
+      font-size: 55px;
+      color: #e83e8c;
+      text-shadow: 3px 3px 0 #ffd0e2;
+    }
+
+    h2 {
+      margin-top: 10px;
+      font-size: 28px;
+      color: #b52f68;
+    }
+
+    p {
+      margin: 20px auto;
+      max-width: 500px;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #70405a;
+    }
+
+    .name {
+      color: #e83e8c;
+      font-weight: bold;
+    }
+
+    /* ENVELOPE */
+
+    .envelope-section {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .tap-text {
+      font-family: "Caveat", cursive;
+      font-size: 25px;
+      color: #b52f68;
+      margin-bottom: 12px;
+      animation: gentlePulse 1.8s infinite;
+    }
+
+    @keyframes gentlePulse {
+      0%,100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .envelope {
+      position: relative;
+      width: 230px;
+      height: 150px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      perspective: 800px;
+    }
+
+    .envelope:hover {
+      transform: scale(1.06);
+    }
+
+    .envelope:active {
+      transform: scale(0.97);
+    }
+
+    .envelope-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #f58ab8;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(180,50,110,0.3);
+      z-index: 1;
+    }
+
+    .envelope-back::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-left: 115px solid transparent;
+      border-right: 115px solid transparent;
+      border-bottom: 82px solid #ed6fa7;
+      z-index: 2;
+    }
+
+    .envelope-back::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 0;
+      border-left: 115px solid transparent;
+      border-right: 115px solid transparent;
+      border-top: 82px solid #f9a6ca;
+      z-index: 3;
+    }
+
+    .envelope-flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 115px solid transparent;
+      border-right: 115px solid transparent;
+      border-top: 82px solid #f7a0c7;
+      transform-origin: top center;
+      transition: transform 0.8s ease;
+      z-index: 5;
+    }
+
+    .seal {
+      position: absolute;
+      z-index: 7;
+      left: 50%;
+      top: 52%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      background: #e83e8c;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 25px;
+      box-shadow: 0 4px 12px rgba(180,50,110,0.3);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .letter-inside {
+      position: absolute;
+      width: 185px;
+      height: 125px;
+      background: #fff8fc;
+      left: 50%;
+      top: 15px;
+      transform: translateX(-50%);
+      border-radius: 5px;
+      z-index: 2;
+      transition: transform 0.8s ease;
+      box-shadow: 0 3px 8px rgba(180,50,110,0.15);
+    }
+
+    .letter-inside::before {
+      content: "💗";
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 28px;
+    }
+
+    .envelope.open .envelope-flap {
+      transform: rotateX(180deg);
+      z-index: 0;
+    }
+
+    .envelope.open .letter-inside {
+      transform: translate(-50%, -95px);
+    }
+
+    .envelope.open .seal {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0);
+    }
+
+    /* LETTER */
+
+    #message {
+      display: none;
+      margin-top: 35px;
+      padding: 40px 30px;
+      background: #fff5fa;
+      background-image:
+        radial-gradient(
+          circle at 15% 20%,
+          rgba(255,182,213,0.35) 0,
+          transparent 40%
+        ),
+        radial-gradient(
+          circle at 85% 80%,
+          rgba(255,182,213,0.35) 0,
+          transparent 40%
+        );
+      border-radius: 24px;
+      border: 2px solid #ffd6e7;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @keyframes unfoldLetter {
+      0% {
+        opacity: 0;
+        transform:
+          perspective(700px)
+          rotateX(-90deg)
+          scaleY(0.2);
+        transform-origin: top;
+      }
+
+      60% {
+        opacity: 1;
+        transform:
+          perspective(700px)
+          rotateX(15deg)
+          scaleY(1.03);
+      }
+
+      100% {
+        opacity: 1;
+        transform:
+          perspective(700px)
+          rotateX(0deg)
+          scaleY(1);
+      }
+    }
+
+    .letter-deco {
+      position: absolute;
+      color: #f5a9c8;
+      font-size: 22px;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .letter-heading {
+      font-family: "Caveat", cursive;
+      font-size: 40px;
+      color: #e83e8c;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .letter-body {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      align-items: flex-start;
+    }
+
+    /* PHOTOS */
+
+    .letter-photos {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: center;
+      flex: 0 0 200px;
+    }
+
+    .polaroid {
+      background: white;
+      padding: 10px 10px 30px 10px;
+      box-shadow: 0 8px 20px rgba(180,50,110,0.2);
+      border-radius: 4px;
+      transform: rotate(-4deg);
+      width: 180px;
+    }
+
+    .polaroid img {
+      display: block;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 2px;
+    }
+
+    .polaroid.rotate-right {
+      transform: rotate(4deg);
+    }
+
+    .polaroid.rotate-left {
+      transform: rotate(-6deg);
+    }
+
+    .polaroid-caption {
+      font-family: "Caveat", cursive;
+      font-size: 20px;
+      color: #b52f68;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .wide-photo-wrap {
+      width: 100%;
+      max-width: 400px;
+      background: white;
+      padding: 10px;
+      box-shadow: 0 8px 20px rgba(180,50,110,0.2);
+      border-radius: 8px;
+    }
+
+    .wide-photo-wrap img {
+      display: block;
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    /* LETTER TEXT */
+
+    .letter-text {
+      flex: 1 1 280px;
+      font-family: "Poppins", sans-serif;
+      color: #70405a;
+    }
+
+    .letter-text p {
+      max-width: none;
+      margin: 0 0 16px 0;
+      font-size: 15.5px;
+      line-height: 1.75;
+      text-align: left;
+    }
+
+    .letter-list {
+      list-style: none;
+      margin: 6px 0 18px 0;
+      padding: 0;
+    }
+
+    .letter-list li {
+      font-size: 15px;
+      margin-bottom: 8px;
+      color: #70405a;
+    }
+
+    .letter-list li::before {
+      content: "💗 ";
+    }
+
+    .letter-signoff {
+      font-family: "Caveat", cursive;
+      font-size: 28px;
+      color: #e83e8c;
+      text-align: right;
+      margin-top: 10px;
+    }
+
+    /* FIREWORKS */
+
+    #fireworks-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 20;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 600px) {
+
+      h1 {
+        font-size: 40px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      .emoji {
+        font-size: 50px;
+      }
+
+      .card {
+        padding: 40px 20px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      .envelope {
+        width: 200px;
+        height: 130px;
+      }
+
+      .envelope-back::before {
+        border-left-width: 100px;
+        border-right-width: 100px;
+        border-bottom-width: 72px;
+      }
+
+      .envelope-back::after {
+        border-left-width: 100px;
+        border-right-width: 100px;
+        border-top-width: 72px;
+      }
+
+      .envelope-flap {
+        border-left-width: 100px;
+        border-right-width: 100px;
+        border-top-width: 72px;
+      }
+
+      .letter-inside {
+        width: 160px;
+        height: 105px;
+      }
+
+      .letter-heading {
+        font-size: 34px;
+      }
+
+      .letter-body {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .letter-photos {
+        flex: none;
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- FIREWORKS -->
+  <canvas id="fireworks-canvas"></canvas>
+
+  <!-- FLOATING HEARTS -->
+  <div class="heart">♡</div>
+  <div class="heart">♥</div>
+  <div class="heart">♡</div>
+  <div class="heart">♥</div>
+  <div class="heart">♡</div>
+
+  <!-- BALLOONS -->
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+
+  <!-- MAIN CARD -->
+  <div class="card">
+
+    <div class="emoji">🍰</div>
+
+    <h1>Happiestttt Borthday!</h1>
+
+    <h2>
+      To <span class="name">My Beautifull Babyy Gurl</span> 💗
+    </h2>
+
+    <p>
+      Wishing you a day filled with happiness,
+      laughter, love, and lots of wonderful memories.
+      May all your wishes come true! ✨
+    </p>
+
+    <!-- ENVELOPE -->
+
+    <div class="envelope-section">
+
+      <div class="tap-text">
+        💌 Tap the letter to open 💌
+      </div>
+
+      <div
+        class="envelope"
+        id="envelope"
+        onclick="toggleLetter()"
+      >
+
+        <div class="letter-inside"></div>
+
+        <div class="envelope-back"></div>
+
+        <div class="envelope-flap"></div>
+
+        <div class="seal">
+          ♥
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- LETTER -->
+
+    <div id="message">
+
+      <div
+        class="letter-deco"
+        style="top:10px; left:20px;"
+      >
+        ✦
+      </div>
+
+      <div
+        class="letter-deco"
+        style="bottom:15px; right:25px;"
+      >
+        ♡
+      </div>
+
+      <div
+        class="letter-deco"
+        style="top:50%; right:10px;"
+      >
+        ✦
+      </div>
+
+      <div class="letter-heading">
+        A Special Message For You 💗
+      </div>
+
+      <div class="letter-body">
+
+        <!-- PHOTOS -->
+
+        <div class="letter-photos">
+
+          <div>
+
+            <div class="polaroid">
+
+              <img
+                src="Photo 1.jpg"
+                alt="Photo 1"
+              >
+
+            </div>
+
+            <div class="polaroid-caption">
+              thank you for being you 💗
+            </div>
+
+          </div>
+
+          <div class="wide-photo-wrap">
+
+            <img
+              src="Photo 2.jpg"
+              alt="Photo 2"
+            >
+
+          </div>
+
+          <div>
+
+            <div class="polaroid rotate-right">
+
+              <img
+                src="Photo 3.jpg"
+                alt="Photo 3"
+              >
+
+            </div>
+
+            <div class="polaroid-caption">
+              my favorite memory 🌸
+            </div>
+
+          </div>
+
+          <div>
+
+            <div class="polaroid rotate-left">
+
+              <img
+                src="Photo 4.jpeg"
+                alt="Photo 4"
+              >
+
+            </div>
+
+            <div class="polaroid-caption">
+              always and forever ✨
+            </div>
+
+          </div>
+
+          <div class="wide-photo-wrap">
+
+            <img
+              src="Photo 5.jpeg"
+              alt="Photo 5"
+            >
+
+          </div>
+
+        </div>
+
+        <!-- MESSAGE -->
+
+        <div class="letter-text">
+
+          <p>
+            Happy Birthday! 🎉 Today is all about you,
+            and I’m sorry if we’ve had our downs these past
+            few days. I hope you know that I love you and
+            will always love you. This is your 15th birthday,
+            and I hope that you continue to tolerate me hehehe.
+          </p>
+
+          <p>
+            But yeah, I hope to be with you forevermore,
+            and let’s enjoy this birthday of yours. I hope
+            you’re happy, even though I’ve let you down so
+            many times. And yeah, I hope you see this and
+            smile at least. I love you so much, babyy. ❤️
+          </p>
+
+          <p>
+            Thank you for existing. This year has been great,
+            and I hope you enjoyed being with me whahahha.
+            It's been 1 year of your life with me. I hope you
+            enjoyed me, even though, what can I say, I'm a
+            disappointment at times. I'm working on it, baby.
+            I hope you can just wait a little more and continue
+            to watch me grow, as I want to see you grow too.
+          </p>
+
+          <p>
+            These past days, we haven't talked that much,
+            and every second, I cannot—I cannot just imagine
+            being without you, my love. Those disgusting
+            silences in my room that normally have your
+            singing voice, the noise when you scroll...
+            I hope you know that being with you has made
+            me more than I ever was these past months.
+          </p>
+
+          <p>
+            I love you so much, ehehheh, more than you can
+            comprehend. Have a great birthday, my dearest,
+            and go with that 15 of yours and shoot those
+            people bringing you down whahahah. Be patient
+            with me too, please. I want to go on a lot of
+            adventures with you pa. I love you so, so, so much.
+          </p>
+
+          <p>
+            God, whahahha, I want to get my driver's license
+            so we can go on long trips, those far trips.
+            I hope this new year of yours will be great.
+            Of course, know there will be challenges, but
+            face them. I know you. You are a strong woman,
+            and that's why I love you after all.
+          </p>
+
+          <p>
+            Have a great birthday, baby. I love you. ❤️
+          </p>
+
+          <p>
+            I hope this new chapter of your life brings you
+            endless happiness, good health, and all the things
+            that make your heart flutter. Keep being amazing,
+            keep chasing your dreams, and never forget how
+            special you are to me and to others—more special
+            to me though ehehhehe.
+          </p>
+
+          <p>
+            I love you very much, my dearest babyy. You fill
+            my heart ever since you made me fall in love with
+            you that night—with your karaoke and swimming
+            skills—and that time we confessed together.
+            I will always love you no matter what, and I hope
+            you will too.
+          </p>
+
+          <p>
+            This might not make you smile after that
+            disappointment I just caused, but I hope it can
+            still lift those pretty curves. ❤️
+          </p>
+
+          <div>
+            May your days be filled with:
+          </div>
+
+          <ul class="letter-list">
+
+            <li>
+              good music &amp; lots of hugssss
+            </li>
+
+            <li>
+              kind people &amp; deep rest for your beauty
+            </li>
+
+            <li>
+              cheese cakes &amp; beautiful memoriesss
+            </li>
+
+            <li>
+              and everything your heart desires
+            </li>
+
+          </ul>
+
+          <p>
+            I love you so much. Have the best birthday ever! 🍰💕
+          </p>
+
+          <div class="letter-signoff">
+            — with all my love
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    let isAnimatingLetter = false;
+
+
+    /* =========================================
+       OPEN / CLOSE LETTER
+    ========================================= */
+
+    function toggleLetter() {
+
+      if (isAnimatingLetter) {
+        return;
+      }
+
+      const envelope =
+        document.getElementById("envelope");
+
+      const message =
+        document.getElementById("message");
+
+      const tapText =
+        document.querySelector(".tap-text");
+
+
+      /* =====================================
+         CLOSE
+      ===================================== */
+
+      if (envelope.classList.contains("open")) {
+
+        isAnimatingLetter = true;
+
+        message.style.animation = "none";
+
+        message.style.opacity = "0";
+
+        message.style.transform =
+          "perspective(700px) rotateX(-90deg) scaleY(0.2)";
+
+        setTimeout(function() {
+
+          message.style.display = "none";
+
+          envelope.classList.remove("open");
+
+          tapText.textContent =
+            "💌 Tap the letter to open 💌";
+
+          message.style.opacity = "";
+
+          message.style.transform = "";
+
+          message.style.animation = "";
+
+          isAnimatingLetter = false;
+
+        }, 500);
+
+        return;
+      }
+
+
+      /* =====================================
+         OPEN
+      ===================================== */
+
+      isAnimatingLetter = true;
+
+      envelope.classList.add("open");
+
+      tapText.textContent =
+        "💗 Your letter is opening... 💗";
+
+
+      setTimeout(function() {
+
+        message.style.display = "block";
+
+        message.style.animation =
+          "unfoldLetter 1.2s ease";
+
+        tapText.textContent =
+          "💌 Tap the envelope again to close 💌";
+
+        launchFireworks();
+
+        isAnimatingLetter = false;
+
+
+        setTimeout(function() {
+
+          message.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+        }, 300);
+
+      }, 850);
+
+    }
+
+
+    /* =========================================
+       FIREWORKS
+    ========================================= */
+
+    const canvas =
+      document.getElementById("fireworks-canvas");
+
+    const ctx =
+      canvas.getContext("2d");
+
+
+    function resizeCanvas() {
+
+      canvas.width =
+        window.innerWidth;
+
+      canvas.height =
+        window.innerHeight;
+
+    }
+
+
+    resizeCanvas();
+
+
+    window.addEventListener(
+      "resize",
+      resizeCanvas
+    );
+
+
+    const colors = [
+      "#ff5da2",
+      "#ff8fc9",
+      "#ffd166",
+      "#ffffff",
+      "#c724b1",
+      "#ff477e"
+    ];
+
+
+    class Particle {
+
+      constructor(x, y, color) {
+
+        this.x = x;
+
+        this.y = y;
+
+        this.color = color;
+
+
+        const angle =
+          Math.random() * Math.PI * 2;
+
+        const speed =
+          Math.random() * 5 + 2;
+
+
+        this.vx =
+          Math.cos(angle) * speed;
+
+        this.vy =
+          Math.sin(angle) * speed;
+
+
+        this.alpha = 1;
+
+        this.gravity = 0.05;
+
+        this.friction = 0.98;
+
+        this.size =
+          Math.random() * 3 + 2;
+
+      }
+
+
+      update() {
+
+        this.vx *= this.friction;
+
+        this.vy *= this.friction;
+
+        this.vy += this.gravity;
+
+        this.x += this.vx;
+
+        this.y += this.vy;
+
+        this.alpha -= 0.015;
+
+      }
+
+
+      draw() {
+
+        ctx.save();
+
+        ctx.globalAlpha =
+          Math.max(this.alpha, 0);
+
+        ctx.fillStyle =
+          this.color;
+
+        ctx.beginPath();
+
+        ctx.arc(
+          this.x,
+          this.y,
+          this.size,
+          0,
+          Math.PI * 2
+        );
+
+        ctx.fill();
+
+        ctx.restore();
+
+      }
+
+    }
+
+
+    let particles = [];
+
+    let animating = false;
+
+
+    function createBurst(x, y) {
+
+      const count = 55;
+
+      const color =
+        colors[
+          Math.floor(
+            Math.random() * colors.length
+          )
+        ];
+
+
+      for (
+        let i = 0;
+        i < count;
+        i++
+      ) {
+
+        particles.push(
+          new Particle(
+            x,
+            y,
+            color
+          )
+        );
+
+      }
+
+    }
+
+
+    function animateFireworks() {
+
+      ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+
+
+      particles =
+        particles.filter(function(p) {
+
+          return p.alpha > 0;
+
+        });
+
+
+      particles.forEach(function(p) {
+
+        p.update();
+
+        p.draw();
+
+      });
+
+
+      if (particles.length > 0) {
+
+        requestAnimationFrame(
+          animateFireworks
+        );
+
+      } else {
+
+        animating = false;
+
+      }
+
+    }
+
+
+    function launchFireworks() {
+
+      const burstCount = 7;
+
+
+      for (
+        let i = 0;
+        i < burstCount;
+        i++
+      ) {
+
+        setTimeout(function() {
+
+          const x =
+            Math.random() *
+            canvas.width *
+            0.7 +
+            canvas.width *
+            0.15;
+
+
+          const y =
+            Math.random() *
+            canvas.height *
+            0.5 +
+            canvas.height *
+            0.1;
+
+
+          createBurst(x, y);
+
+
+          if (!animating) {
+
+            animating = true;
+
+            animateFireworks();
+
+          }
+
+        }, i * 300);
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
